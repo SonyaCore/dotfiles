@@ -1,0 +1,166 @@
+# video settings #
+##################
+
+# Start in fullscreen mode by default.
+#fs=yes
+
+# force starting with centered window
+#geometry=50%:50%
+
+# don't allow a new window to have a size larger than 90% of the screen size
+#autofit-larger=90%x90%
+
+# Do not close the window on exit.
+#keep-open=yes
+
+# Do not wait with showing the video window until it has loaded. (This will
+# resize the window once video is loaded. Also always shows a window with
+# audio.)
+#force-window=immediate
+
+# Disable the On Screen Controller (OSC).
+#osc=no
+
+# Keep the player window on top of all other windows.
+#ontop=yes
+
+profile=gpu-hq
+#scale=ewa_lanczossharp
+#cscale=ewa_lanczossharp
+#dscale=mitchell
+#video-sync=audio
+#interpolation=yes
+#tscale=oversample
+#hwdec-codecs=all
+#correct-downscaling=yes
+#linear-downscaling=yes
+#sigmoid-upscaling=yes
+
+
+#Wayland
+#profile=gpu-hq
+gpu-api=vulkan
+#gpu-context=wayland
+spirv-compiler=shaderc
+hwdec=nvdec-copy
+
+deband=yes
+deband-iterations=2
+deband-threshold=20
+deband-range=16
+
+vd-lavc-dr=yes
+
+#video-sync=display-resample
+#hwdec=nvdec
+#vo=gpu
+#x11-bypass-compositor=no
+#hr-seek-framedrop=no
+
+# Dither #
+##########
+ 
+dither=error-diffusion
+temporal-dither=yes
+dither-depth=no
+
+# OSC/OSD #
+###########
+osc=yes 
+osd-bar=yes        # Do not remove/comment if mpv_thumbnail_script_client_osc.lua is being used.
+osd-font='Source Sans Pro'    # Set a font for OSC
+osd-font-size=22      # Set a font size
+osd-color='#CCFFFFFF'                   # ARGB format
+osd-border-color='#DD322640'            # ARGB format
+osd-bar-align-y=-1                      # progress bar y alignment (-1 top, 0 centered, 1 bottom)
+osd-border-size=2                       # size for osd text and progress bar
+osd-bar-h=2                             # height of osd bar as a fractional percentage of your screen height
+osd-bar-w=50                            # width of " " "
+
+# Subs #  
+########
+sub-ass-vsfilter-blur-compat=yes  # Backward compatibility for vsfilter fansubs
+sub-ass-scale-with-window=no   # May have undesired effects with signs being misplaced. 
+sub-auto=fuzzy                          # external subs don't have to match the file name exactly to autoload
+sub-file-paths-append=ass               # search for external subs in these relative subdirectories
+sub-file-paths-append=srt
+sub-file-paths-append=sub
+sub-file-paths-append=subs
+sub-file-paths-append=subtitles
+sub-ass-hinting=native
+sub-color='#ffff00'
+demuxer-mkv-subtitle-preroll            # try to correctly show embedded subs when seeking
+embeddedfonts=yes      # use embedded fonts for SSA/ASS subs
+sub-fix-timing=no                       # do not try to fix gaps (which might make it worse in some cases). Enable if there are scenebleeds.
+
+# Terminal
+msg-color=yes
+term-osd-bar=yes
+
+# audio settings #
+##################
+
+#audio-device=alsa/default
+
+# Do not filter audio to keep pitch when changing playback speed.
+#audio-pitch-correction=no
+
+# Output 5.1 audio natively, and upmix/downmix audio with a different format.
+audio-channels=5.1
+audio-channels=auto
+volume-max=200
+af=acompressor
+ao=alsa
+
+# other settings #
+##################
+#keepaspect=no
+
+# Pretend to be a web browser. Might fix playback with some streaming sites,
+# but also will break with shoutcast streams.
+#user-agent="Mozilla/5.0"
+
+# cache settings
+# Use a large seekable RAM cache even for local input.
+cache=yes
+#
+# Use extra large RAM cache (needs cache=yes to make it useful).
+#demuxer-max-bytes=500M
+#demuxer-max-back-bytes=100M
+#
+# Disable the behavior that the player will pause if the cache goes below a
+# certain fill size.
+cache-pause=no
+#
+# Store cache payload on the hard disk instead of in RAM. (This may negatively
+# impact performance unless used for slow input such as network.)
+#cache-dir=~/.cache/
+#cache-on-disk=yes
+
+# Display English subtitles if available.
+#slang=en
+
+# Play Finnish audio if available, fall back to English otherwise.
+#alang=fi,en
+
+# Change subtitle encoding. For Arabic subtitles use 'cp1256'.
+# If the file seems to be valid UTF-8, prefer UTF-8.
+# (You can add '+' in front of the codepage to force it.)
+#sub-codepage=cp1256
+
+# You can also include other configuration files.
+#include=/path/to/the/file/you/want/to/include
+
+# Profiles #
+############
+
+# The options declared as part of profiles override global default settings,
+# but only take effect when the profile is active.
+
+# The following profile can be enabled on the command line with: --profile=eye-cancer
+
+#[eye-cancer]
+#sharpen=5
+
+[pseudo-gui]
+player-operation-mode=pseudo-gui
